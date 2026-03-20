@@ -14,9 +14,3 @@ class NumMatrix {
         return comp[row2+1][col2+1]-comp[row1][col2+1]-comp[row2+1][col1]+comp[row1][col1];
     }
 }
-
-/**
- * Your NumMatrix object will be instantiated and called as such:
- * NumMatrix obj = new NumMatrix(matrix);
- * int param_1 = obj.sumRegion(row1,col1,row2,col2);
- */
