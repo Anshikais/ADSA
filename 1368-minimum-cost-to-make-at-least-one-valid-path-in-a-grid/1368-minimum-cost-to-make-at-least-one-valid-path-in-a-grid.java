@@ -22,15 +22,17 @@ class Solution {
         pq.add(new Pair(0,0,0));
        while(!pq.isEmpty()){
         Pair curr = pq.poll();
-      if(visited[curr.row][curr.col]) continue;
-       visited[curr.row][curr.col] = true;
-        if(curr.row==n-1 && curr.col==m-1) return curr.dist;
+        int r = curr.row;
+        int c = curr.col;
+      if(visited[r][c]) continue;
+       visited[r][c] = true;
+        if(r==n-1 && c==m-1) return curr.dist;
         for(int i=0; i<4; i++){
-            int nr = curr.row + rowDir[i];
-            int nc = curr.col + colDir[i];
+            int nr = r + rowDir[i];
+            int nc = c + colDir[i];
              if(!isValid(nr,nc,n,m)) continue;
             int cost = curr.dist;
-           if(grid[curr.row][curr.col]!=i+1) cost++;
+           if(grid[r][c]!=i+1) cost++;
            pq.add(new Pair(nr,nc,cost));
         }
        }
