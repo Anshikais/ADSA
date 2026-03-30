@@ -7,8 +7,8 @@ class Solution {
     }
     public int minCostClimbingStairs(int[] cost) {
         int n = cost.length;
-       int []dp = new int[n+1];
+       int []dp = new int[n+2];
        Arrays.fill(dp,-1);
-        return Math.min(solve(cost, n - 1, dp),  solve(cost, n - 2, dp) );
+        return Math.min(solve(cost, n - 1, dp),solve(cost, n - 2, dp));
     } 
 }
