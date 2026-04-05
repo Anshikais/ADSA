@@ -17,17 +17,16 @@ class Solution {
     }
     public int solve(int[]coins, int amount,int n,int dp[][]){
     // base case
-       if(n==0)
+    if(amount==0)
+    {
+        return 0;
+    }
+       if(n<0)
        {
-          if(amount%coins[0]==0)
-          {
-            return amount/coins[0];
-          }
-          else
-          {
-            return Integer.MAX_VALUE;
-          }
+        return Integer.MAX_VALUE;
+         
        }
+       
        if(dp[n][amount]!=-1)
        {
         return dp[n][amount];
