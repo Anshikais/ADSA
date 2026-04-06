@@ -1,18 +1,19 @@
 class Solution {
     public int rob(int[] nums) {
         int n = nums.length;
-     if(n == 1) return nums[0];
-        int dp1[] = new int[n];
-        int dp2[] = new int[n];
-        Arrays.fill(dp1, -1);
-        Arrays.fill(dp2, -1);
-        return Math.max(solve(nums,0,n-1,dp1), solve(nums,1,n,dp2));
+       if(n==1) return nums[0];
+       return Math.max (solve(nums,0,n-2),solve(nums,1,n-1));
     }
-    public int solve(int[] nums, int start, int end, int[]dp){
-        if(start>=end) return 0;
-        if(dp[start]!= -1) return dp[start];
-        int curr = nums[start] + solve(nums,start+2,end,dp);
-        int not = solve(nums,start+1, end, dp);
-        return dp[start] = Math.max(curr,not);
+    public int solve(int[]nums, int start, int end){
+      int n = end-start+1;
+        int[] dp = new int[n+1];
+        dp[0] = 0;
+        dp[1] = nums[start];
+        for(int i=2; i<=n; i++){
+            int take =nums[start+i-1] + dp[i-2];
+            int skip = dp[i-1];
+            dp[i] = Math.max(take,skip); 
+        }
+        return dp[n];
     }
 }
