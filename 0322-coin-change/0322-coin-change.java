@@ -11,17 +11,16 @@ class Solution {
     }
     public int solve(int[]coins, int amount,int n,int dp[][]){
     if(amount==0) return 0;
-     if(n<0) return Integer.MAX_VALUE;
+      if(n<0) return Integer.MAX_VALUE;
        if(dp[n][amount]!=-1)return dp[n][amount];
-        int include = Integer.MAX_VALUE;
-      if(coins[n]<=amount){
-         include=solve(coins, amount-coins[n],n,dp);
-         if(include!=Integer.MAX_VALUE){
-            include+=1;
-         }
-      }
-         int exclude = solve(coins, amount, n-1,dp);    
-         return dp[n][amount]=Math.min(include,exclude);
-
+      int include = Integer.MAX_VALUE;
+       if(coins[n]<=amount){
+        include = solve(coins, amount-coins[n],n,dp);
+        if(include!=Integer.MAX_VALUE){
+            include++;
+        }
+       }
+         int exclude = solve(coins,amount,n-1,dp);
+         return dp[n][amount]= Math.min(include,exclude); 
     }
 }
