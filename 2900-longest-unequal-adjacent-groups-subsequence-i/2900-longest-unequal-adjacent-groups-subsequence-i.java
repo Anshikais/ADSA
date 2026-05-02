@@ -5,8 +5,8 @@ class Solution {
         int pre = groups[0];
         for(int i=0; i<words.length; i++){
             if(groups[i]!=pre){
-                 res.add(words[i]);
-                 pre = groups[i];
+                res.add(words[i]);
+                pre = groups[i];
             }
         }
         return res;
