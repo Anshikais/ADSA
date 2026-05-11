@@ -11,11 +11,12 @@ class Solution {
         if(amount==0) return 1;
         if(n<0) return 0;
         if(dp[n][amount]!=-1) return dp[n][amount];
-        int skip = solve(amount,coins,n-1,dp);
+       
         int take = 0;
         if(coins[n]<=amount){
             take = solve(amount-coins[n],coins,n,dp);
         }
+         int skip = solve(amount,coins,n-1,dp);
         return dp[n][amount]= skip+take;
     }
 }
