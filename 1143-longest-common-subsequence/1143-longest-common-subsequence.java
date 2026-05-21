@@ -11,11 +11,12 @@ class Solution {
     public int solve(String text1,String text2,int i, int j, int[][]dp ){
         if(i == text1.length() || j == text2.length()) return 0;
         if(dp[i][j]!=-1) return dp[i][j];
-        int skip1 = solve(text1,text2,i+1,j,dp);
-        int skip2 = solve(text1,text2,i,j+1,dp);
+        int take1 = solve(text1,text2,i+1,j,dp);
+        int take2 = solve(text1,text2,i,j+1,dp);
+        int take = 0;
         if(text1.charAt(i)==text2.charAt(j)){
-            return dp[i][j] = 1+solve(text1,text2,i+1,j+1,dp);
+           take = 1+solve(text1,text2,i+1,j+1,dp);
         }
-         return dp[i][j] = Math.max(skip1,skip2);
+         return dp[i][j] =Math.max(take, Math.max(take1,take2));
     }
 }
