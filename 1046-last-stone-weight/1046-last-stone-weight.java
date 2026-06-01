@@ -6,8 +6,12 @@ class Solution {
         pq.add(stones[i]);
     } 
     while(pq.size()>1){
-      pq.add(pq.poll()-pq.poll()); 
+     int first = pq.poll();
+     int second = pq.poll();
+      if (first != second) {
+       pq.add(first - second);
+   }
     } 
-    return pq.poll();
+    return  pq.isEmpty()?0 : pq.poll();
     }
 }
