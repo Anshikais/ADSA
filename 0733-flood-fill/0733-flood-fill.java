@@ -1,4 +1,4 @@
-class Solution {
+ class Solution {
      class Pair{
         int row;
         int col;
