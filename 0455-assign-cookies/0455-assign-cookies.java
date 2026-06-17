@@ -4,7 +4,7 @@ class Solution {
         int m = s.length;
         Arrays.sort(g);
         Arrays.sort(s);
-        int l = 0, r =0, count =0;
+        int l=0, r=0, count=0;
         while(l<n && r<m){
             if(s[r]>=g[l]){
                 count++;
