@@ -1,6 +1,6 @@
 class Solution {
     public int minDays(int[] bloomDay, int m, int k) {
-        long flower = 1L*m*k;
+        long flower = 1L*m*k;// cause integer overflow 
         if(flower>bloomDay.length) return -1;
         int low = Integer.MAX_VALUE;
         int high = 0;
